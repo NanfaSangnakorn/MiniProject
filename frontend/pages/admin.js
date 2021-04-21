@@ -1,165 +1,198 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import styles from "../styles/Pet.module.css";
+import styles from "../styles/Plant.module.css";
 import Link from "next/link";
 import withAuth from "../components/withAuth";
 import Navbar from "../components/navbar";
-const URL = "http://localhost/api/students";
-const URL_IN = "http://localhost/api/income";
+const URL = "http://localhost/api/plants";
+
 const admin = ({ token }) => {
-  const [user, setUser] = useState({});
+    const [user, setUser] = useState({});
 
-  const [students, setStudents] = useState({});
-  const [income, setIncome] = useState();
-  const [name, setName] = useState("");
-  const [surname, setSurname] = useState("");
-  const [major, setMajor] = useState("");
-  const [gpa, setGpa] = useState();
+    const [plants, setPlants] = useState({});
+    const [name, setName] = useState("");
+    const [sciename, setSciename] = useState("");
+    const [family, setFamily] = useState("");
+    const [kingdom, setKingdom] = useState();
+    const [plantstyle, setPlantstyle] = useState({});
 
 
+    useEffect(() => {
+        getPlants();
+        profileUser();
+    }, []);
+    const profileUser = async() => {
+        try {
+            // console.log('token: ', token)
+            const users = await axios.get(`${config.URL}/profile`, {
+                headers: { Authorization: `Plant ${token}` },
+            });
+            // console.log('user: ', users.data)
+            setUser(users.data);
+        } catch (e) {
+            console.log(e);
+        }
+    };
+    const getPlanttById = async(id) => {
+        let result = await axios.get(`${URL}/${id}`);
+        console.log(result.data);
+        setPlants(result.data);
+    };
 
-  const [student, setStudent] = useState({});
-  useEffect(() => {
-    getStudents();
-    getIncome();
-    profileUser();
-  }, []);
-  const profileUser = async () => {
-    try {
-      // console.log('token: ', token)
-      const users = await axios.get(`${config.URL}/profile`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      // console.log('user: ', users.data)
-      setUser(users.data);
-    } catch (e) {
-      console.log(e);
-    }
-  };
-  const getStudentById = async (id) => {
-    let result = await axios.get(`${URL}/${id}`);
-    console.log(result.data);
-    setStudent(result.data);
-  };
 
-  const getIncome = async () => {
-    let result = await axios.get(URL_IN);
-    setIncome(result.data);
-  };
+    const getPlants = async() => {
+        let result = await axios.get(URL);
+        setPlants(result.data.list);
+    };
 
-  const getStudents = async () => {
-    let result = await axios.get(URL);
-    setStudents(result.data.list);
-  };
+    const addPlant = async() => {
+        let result = await axios.post(URL, {
+            name,
+            sciename,
+            family,
+            kingdom,
+            plantstyle,
+        });
+        console.log(result);
+        getPlants();
+    };
 
-  const addStudent = async () => {
-    let result = await axios.post(URL, {
-      name,
-      surname,
-      major,
-      gpa,
-    });
-    console.log(result);
-    getStudents();
-  };
+    const deletePlant = async(id) => {
+        let result = await axios.delete(`${URL}/${id}`);
+        getPlants();
+    };
 
-  const deleteStudent = async (id) => {
-    let result = await axios.delete(`${URL}/${id}`);
-    getStudents();
-  };
+    const updatePlant = async(id) => {
+        let result = await axios.put(`${URL}/${id}`, {
+            name,
+            sciename,
+            family,
+            kingdom,
+            plantstyle,
+        });
+        console.log(result);
+        getPlants();
+    };
 
-  const updateStudent = async (id) => {
-    let result = await axios.put(`${URL}/${id}`, {
-      name,
-      surname,
-      major,
-      gpa,
-    });
-    console.log(result);
-    getStudents();
-  };
+    const showPlants = () => {
+        if (plants && plants.length) {
+            return plants.map((item, index) => {
+                return (
 
-  const showStudents = () => {
-    if (students && students.length) {
-      return students.map((item, index) => {
-        return (
-          <div className={styles.listItem} key={index}>
-            <b>Name :</b> {item.name} <br />
-            <b>Surname :</b> {item.surname} <br />
-            <b>Major :</b> {item.major} <br />
-            <b>Gpa :</b> {item.gpa}
-            <div className={styles.edit_button}>
-              <button
-                className={styles.button_get}
-                onClick={() => getStudentById(item.id)}
-              >
-                Get
-              </button>
-              <button
-                className={styles.button_update}
-                onClick={() => updateStudent(item.id)}
-              >
-                Update
-              </button>
-              <button
-                className={styles.button_delete}
-                onClick={() => deleteStudent(item.id)}
-              >
-                Delete
-              </button>
-            </div>
-          </div>
-        );
-      });
-    } else {
-      return <p>Loading...</p>;
-    }
-  };
-  return (
-    <div className={styles.container}>
-      <Navbar />
-      <h1>Student</h1>
-      <h3>Income : {income}</h3>
-      <div className={styles.form_add}>
-        <h2>Add Students</h2>
+                    <
+                    div className = { styles.listItem }
+                    key = { index } >
+                    <
+                    b > Name: < /b> {item.name} <br / >
+                    <
+                    b > Scientific name: < /b> {item.sciename} <br / >
+                    <
+                    b > Plant Family: < /b> {item.family} <br / >
+                    <
+                    b > Plant Kingdom: < /b> {item.kingdom}{" "} <
+                    b > Plant Family: < /b> {item.family} <br / >
+                    <
+                    b > Plant Family: < /b> {item.family} <br / >
+                    <
+                    b > Plant Family: < /b> {item.family} <br / >
+                    <
+                    b > Style: < /b> {item.plantstyle} <br / >
+
+                    <
+                    div className = { styles.edit_button } >
+                    <
+                    button className = { styles.button_get }
+                    onClick = {
+                        () => getPlantById(item.id)
+                    } >
+                    Get { " " } <
+                    /button>{" "} <
+                    button className = { styles.button_update }
+                    onClick = {
+                        () => updatePlant(item.id)
+                    } >
+                    Update { " " } <
+                    /button>{" "} <
+                    button className = { styles.button_delete }
+                    onClick = {
+                        () => deletePlant(item.id)
+                    } >
+                    Delete { " " } <
+                    /button>{" "} < /
+                    div > { " " } <
+                    /div>
+                );
+            });
+        } else {
+            return <p > Loading... < /p>;
+        }
+    };
+    return ( <
+        div className = { styles.container } >
+        <
+        Navbar / >
+        <
+        h1 > Plant < /h1>{" "} <
+        div className = { styles.form_add } >
+        <
+        h2 > Add Plants < /h2>
         Name:
-        <input
-          type="text"
-          name="name"
-          onChange={(e) => setName(e.target.value)}
-        ></input>
-        Surname:
-        <input
-          type="text"
-          name="surname"
-          onChange={(e) => setSurname(e.target.value)}
-        ></input>
-        Major:
-        <input
-          type="text"
-          name="major"
-          onChange={(e) => setMajor(e.target.value)}
-        ></input>
-        Gpa:
-        <input
-          type="number"
-          name="gpa"
-          onChange={(e) => setGpa(e.target.value)}
-        ></input>
-        <button
-          className={styles.button_add}
-          onClick={() => addStudent(name, surname, major, gpa)}
-        >
-          Add
-        </button>
-      </div>
+        <
+        input type = "text"
+        name = "name"
+        onChange = {
+            (e) => setName(e.target.value)
+        } >
+        <
+        /input>
+        Scientific name:
+        <
+        input type = "text"
+        name = "sciename"
+        onChange = {
+            (e) => setSciename(e.target.value)
+        } >
+        <
+        /input>
+        Plant Family: { " " } <
+        input type = "text"
+        name = "family"
+        onChange = {
+            (e) => setFamily(e.target.value)
+        } >
+        <
+        /input>
+        Plant Kingdom: { " " } <
+        input type = "number"
+        name = "kingdom"
+        onChange = {
+            (e) => setKingdom(e.target.value)
+        } >
+        <
+        /input>
 
-      <div className={styles.list}>{showStudents()}</div>
-    </div>
-  );
+
+        Style: { " " } <
+        input type = "number"
+        name = "plantstyle"
+        onChange = {
+            (e) => setPlantstyle(e.target.value)
+        } >
+        <
+        /input>{" "} <
+        button className = { styles.button_add }
+        onClick = {
+            () => addPlant(name, sciename, family, kingdom, plantstyle)
+        } >
+        Add { " " } <
+        /button>{" "} < /
+        div > { " " } <
+        div className = { styles.list } > { showPlants() } < /div>{" "} < /
+        div >
+    );
 };
 export default withAuth(admin);
 
 export function getServerSideProps({ req, res }) {
-  return { props: { token: req.cookies.token || "" } };
+    return { props: { token: req.cookies.token || "" } };
 }
