@@ -49,7 +49,9 @@ function App() {
   };
   return (
     <div>
-      <form onSubmit={handleUpload}>
+      <br />
+      <br/>
+      <form onSubmit={handleUpload} >
         <input type="file" onChange={handleChange} />
         <button disabled={!file}>upload to firebase</button>
       </form>

@@ -10,80 +10,78 @@ import "mdbreact/dist/css/mdb.css";
 
 const NavBar = () => {
   return (
-      
-    
-      <nav class="navbar navbar-expand-md  fixed-top navbar-success bg-success mb-4">
-        <div className="container">
-          <img
-            src="https://png.pngtree.com/png-vector/20190801/ourlarge/pngtree-vector-soil-plant-icon-png-image_1638737.jpg"
-            width="20%"
-            height="20%"
-            class="d-inline-block align-left"
-          />
-          <a className="navbar-brand" href="/">
-            Plant
-          </a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarCollapse"
-            aria-controls="navbarCollapse"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarResponsive">
-            <ul className="navbar-nav ml-auto">
-              <li className="nav-item active">
-                <Link href="/">
-                  <a className="nav-link">
-                    ลงชื่อเข้าใช้
-                    <span className="sr-only">(current)</span>
-                  </a>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link href="/register">
-                  <a className="nav-link" href="#">
-                    ลงทะเบียน
-                  </a>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link href="/profile">
-                  <a className="nav-link">Profile</a>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link href="/test">
-                  <a className="nav-link">ข้อมูลพืช</a>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link href="/admin">
-                  <a className="nav-link">การจัดการข้อมูลพืช</a>
-                </Link>
-              </li>
+    <nav class="navbar  fixed-top navbar-expand-lg navbar-light bg-success md-4">
+      <div className="container">
+        <img
+          src="https://png.pngtree.com/png-vector/20190801/ourlarge/pngtree-vector-soil-plant-icon-png-image_1638737.jpg"
+          width="10%"
+          height="10%"
+          class="d-inline-block align-left"
+        />
+        <a className="navbar-brand" href="/login">
+          Plant
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarCollapse"
+          aria-controls="navbarCollapse"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarResponsive">
+          <ul className="navbar-nav ml-auto">
+            <li className="nav-item active">
+              <Link href="/login">
+                <a className="nav-link">
+                  ลงชื่อเข้าใช้
+                  <span className="sr-only">(current)</span>
+                </a>
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link href="/register">
+                <a className="nav-link" href="#">
+                  ลงทะเบียน
+                </a>
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link href="/Plant">
+                <a className="nav-link">Profile</a>
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link href="/photo">
+                <a className="nav-link">ข้อมูลพืช</a>
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link href="/admin">
+                <a className="nav-link">การจัดการข้อมูลพืช</a>
+              </Link>
+            </li>
 
-              <li className="nav-item red-text font-weight-bold">
-                <Link href="/about">
-                  <a className="nav-link">เกี่ยวกับ</a>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link href="/logout">
-                  <MDBBtn rounded color="danger" align="right">
-                    logout
-                  </MDBBtn>
-                </Link>
-              </li>
-            </ul>
-          </div>
+            <li className="nav-item red-text font-weight-bold">
+              <Link href="/about">
+                <a className="nav-link">เกี่ยวกับ</a>
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link href="/logout">
+                <MDBBtn rounded color="warning" align="right">
+                  logout
+                </MDBBtn>
+              </Link>
+            </li>
+          </ul>
         </div>
-      </nav> 
-    );
+      </div>
+    </nav>
+  );
 }
 
 export default NavBar;

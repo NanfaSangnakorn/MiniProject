@@ -9,14 +9,15 @@ export default function Home({ token }) {
   return (
     <Layout>
     <Head>
-        <title>First Page</title>
+        <title>สวัสดีทุกคน</title>
     </Head>
     <div className={styles.container}>
         <Navbar />
-        <h1>Home page</h1>
-        No login required!
+        <h1>ยินดีต้อนรับสู่โลกของพืชพรรณ</h1>
+         
     </div>
 </Layout>
+
   )
 }
 
