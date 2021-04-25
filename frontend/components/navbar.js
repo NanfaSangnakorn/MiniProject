@@ -1,25 +1,23 @@
-import Link from 'next/link'
+import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Navbar, Nav, Form } from 'react-bootstrap'
+import { Navbar, Nav, Form } from "react-bootstrap";
 import { MDBBtn } from "mdbreact";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
-
-
 
 const NavBar = () => {
   return (
     <nav class="navbar  fixed-top navbar-expand-lg navbar-light bg-success md-4">
       <div className="container">
         <img
-          src="https://png.pngtree.com/png-vector/20190801/ourlarge/pngtree-vector-soil-plant-icon-png-image_1638737.jpg"
+          src="./publid/image/"
           width="10%"
           height="10%"
           class="d-inline-block align-left"
         />
-        <a className="navbar-brand" href="/login">
-          Plant
+        <a className="navbar-brand" href="/">
+          เพื่อนสี่ขา
         </a>
         <button
           class="navbar-toggler"
@@ -49,25 +47,21 @@ const NavBar = () => {
                 </a>
               </Link>
             </li>
+
             <li className="nav-item">
-              <Link href="/Plant">
-                <a className="nav-link">Profile</a>
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link href="/photo">
-                <a className="nav-link">ข้อมูลพืช</a>
+              <Link href="/pet">
+                <a className="nav-link">ข้อมูลสัตว์</a>
               </Link>
             </li>
             <li className="nav-item">
               <Link href="/admin">
-                <a className="nav-link">การจัดการข้อมูลพืช</a>
+                <a className="nav-link">การจัดการข้อมูล</a>
               </Link>
             </li>
 
             <li className="nav-item red-text font-weight-bold">
-              <Link href="/about">
-                <a className="nav-link">เกี่ยวกับ</a>
+              <Link href="/data">
+                <a className="nav-link">อัลบั้มรูปภาพ</a>
               </Link>
             </li>
             <li className="nav-item">
@@ -82,18 +76,9 @@ const NavBar = () => {
       </div>
     </nav>
   );
-}
+};
 
 export default NavBar;
-
-
-
-
-
-
-
-
-
 
 /**import Link from "next/link";
 

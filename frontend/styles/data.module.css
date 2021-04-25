@@ -1,3 +1,37 @@
+.datasection{
+  align-items: center;
+   justify-content: center;
+  padding: 30px;
+  max-width: 800px;
+  margin-right: auto;
+  margin-left: auto
+}
+
+.datacontainer{
+  max-width: 800px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.datasearchinput{
+  align-items: center;
+   justify-content: center;
+  margin-bottom: 15px;
+  width: 70%;
+  padding: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+  border: 1px solid gray;
+  max-width: 800px;
+  margin-right: auto;
+  margin-left: auto;
+
+}
+
+.data{
+  background-color: rgb(92, 153, 177);
+}
+
 .data1 {
   border-bottom: ipx solid grey;
   height: 50px;
@@ -21,4 +55,9 @@
 .data3{
   display: block;
   width: 100%;
+} 
+
+.databutton{
+
+  color: chocolate;
 }

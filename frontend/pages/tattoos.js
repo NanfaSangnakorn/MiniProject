@@ -1,4 +1,4 @@
-const photos = [
+const tattoos = [
   {
     title: "มังคุด",
     thumbnailUrl:
@@ -38,4 +38,4 @@ const photos = [
 ];
 
 
-export default photos;
+export default tattoos;

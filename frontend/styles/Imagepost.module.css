@@ -10,7 +10,7 @@
      align-items: center;
 }
 
-.Imagepost-bg{
+.Imagepostbg{
      background-color: rgba(0, 0, 0, 0.803);
     position: absolute;
     top: 0;
@@ -19,11 +19,11 @@
     right: 0;
 }
 
-.Imagepost-content{
+.Imagepostcontent{
 
      position: relative;
      max-width: 1200px;
-     background-color: black;
+     background-color: white;
 }
 
 .Imagepost-content img {
@@ -35,7 +35,7 @@
      margin-right: auto;
 }
 
-.Imagepost-content h4 {
+.Imagepostcontent h4 {
  
      color:white;
      text-align: center;

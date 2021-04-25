@@ -1,6 +1,6 @@
 import styles from "../styles/data.module.css";
 
-function DataHeader() {
+function AppHeader() {
   return (
     <header className={styles.data1}>
       <a>【Ａｌｌ ｐｅｔｓ】 </a>
@@ -8,4 +8,4 @@ function DataHeader() {
   );
 }
 
-export default DataHeader;
+export default AppHeader;

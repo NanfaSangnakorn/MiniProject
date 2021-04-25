@@ -1,32 +1,30 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import styles from "../styles/Plant.module.css";
-import Link from "next/link";
 import withAuth from "../components/withAuth";
 import Navbar from "../components/navbar";
-const URL = "http://localhost/api/plants";
+const URL = "http://localhost/api/pets";
 
 const admin = ({ token }) => {
     const [user, setUser] = useState({});
 
-    const [plants, setPlants] = useState("");
+    const [pets, setmyPets] = useState("");
     const [name, setName] = useState("");
-    const [sciename, setSciename] = useState("");
-    const [family, setFamily] = useState("");
-    const [kingdom, setKingdom] = useState("");
-    const [plantstyle, setPlantstyle] = useState("");
-
+    const [type, settype] = useState("");
+    const [mystyle, setmystyle ]= useState("");
+    const [zone, setzone] = useState("");
+   
 
     useEffect(() => {
-        getPlants();
+        getPets();
         profileUser();
-        getPlantstById();
+        getPetstById();
     }, []);
     const profileUser = async() => {
         try {
             // console.log('token: ', token)
             const users = await axios.get(`${config.URL}/profile`, {
-                headers: { Authorization: `Plant ${token}` },
+                headers: { Authorization: `Pet ${token}` },
             });
             // console.log('user: ', users.data)
             setUser(users.data);
@@ -34,118 +32,106 @@ const admin = ({ token }) => {
             console.log(e);
         }
     };
-    const getPlantstById = async(id) => {
+    const getPetstById = async(id) => {
         let result = await axios.get(`${URL}/${id}`);
         console.log(result.data);
-        setPlants(result.data);
+        setmyPets(result.data);
     };
 
 
-    const getPlants = async() => {
+    const getPets = async() => {
         let result = await axios.get(URL);
-        setPlants(result.data);
+        setmyPets(result.data);
     };
 
-    const addPlant = async() => {
+    const addPets = async() => {
         let result = await axios.post(URL, {
             name,
-            sciename,
-            family,
-            kingdom,
-            plantstyle,
+            type,
+            mystyle,
+            zone,
         });
         console.log(result);
-        getPlants();
+        getPets();
     };
 
-    const deletePlant = async(id) => {
+    const deletePets = async(id) => {
         let result = await axios.delete(`${URL}/${id}`);
-        getPlants();
+        getPets();
     };
 
-    const updatePlant = async(id) => {
+    const updatePets = async(id) => {
         let result = await axios.put(`${URL}/${id}`, {
-            name,
-            sciename,
-            family,
-            kingdom,
-            plantstyle,
+           name,
+            type,
+            mystyle,
+            zone,
         });
         console.log(result);
-        getPlants();
+        getPets();
     };
 
-    const showPlants = () => {
-        if (plants && plants.length) {
-            return plants.map((item, index) => {
+    const showPets= () => {
+        if (pets && pets.length) {
+            return pets.map((item, index) => {
                 return (
 
                 <div className = { styles.listItem }key = { index } >
                 <b> Name: </b> {item.name} <br/>
-                <b> Scientific name: </b> {item.sciename} <br/>
-                <b> Plant Family: </b> {item.family} <br/>
-                <b> Plant Kingdom: </b> {item.kingdom}{" "}
-                <b> Plant Family: </b> {item.family} <br/>
-                <b> Plant Family: </b> {item.family} <br/>
-                <b> Plant Family: </b> {item.family} <br/>
-                <b> Style: </b> {item.plantstyle} <br/>
+                <b> Type: </b> {item.type} <br/>
+                <b> Style: </b> {item.mystyle} <br/>
+                <b> Zone: </b> {item.zone} <br/>
+                
                 <div className = { styles.edit_button } >
-                <button className = { styles.button_get }onClick = {() => getPlantById(item.id)} >Get { " " } </button>
-                <button className={styles.button_update} onClick={() => updatePlant(item.id)} >Update {" "} </button>
-                <button className = { styles.button_delete }onClick = {() => deletePlant(item.id)} >Delete { " " } </button> 
+                <button className = { styles.button_get }onClick = {() => getPetsById(item.id)} >Get  </button>
+                <button className={styles.button_update} onClick={() => updatePets(item.id)} >Update </button>
+                <button className = { styles.button_delete }onClick = {() => deletePets(item.id)} >Delete </button> 
                 </div> 
                 </div>
                 );
             });
-        } else {
-            return <p> Loading... </p>;
-        }
+        } 
     };
     return (
         <div className = { styles.container } ><Navbar/>
-            <h1> Plant </h1>
+            <h1> Pets </h1>
                 <div className = { styles.form_add } >
-            <h2> Add Plants </h2>
-        Name:
+            <h2> Add Pets </h2>
+       ชื่อ:
         <input
             type="text"
             name = "name"
             onChange = {(e) => setName(e.target.value)} >
                 </input>
                 
-        Scientific name:
+        ประเภท:
         <input
             type="text"
-            name = "sciename"
-            onChange = {(e) => setSciename(e.target.value)} >
+            name = "type"
+            onChange = {(e) => settype(e.target.value)} >
                 </input>
                 
-        Plant Family:
+        ลักษณะ:
         <input
             type="text"
-            name = "family"
-            onChange = {(e) => setFamily(e.target.value)} >
+            name = "mystyle"
+            onChange = {(e) => setmystyle(e.target.value)} >
                 </input>
                 
-        Plant Kingdom:
+       บริเวณที่พบ:
         <input
             type="number"
-            name = "kingdom"
-            onChange = {(e) => setKingdom(e.target.value) } >
+            name = "zone"
+            onChange = {(e) => setzone(e.target.value) } >
         </input>
 
-        Style:
-         <input
-            type="number"
-            name = "plantstyle"
-            onChange = {(e) => setPlantstyle(e.target.value)} >
-                </input>
+        
                 
-        <button className = { styles.button_add }onClick = {() => addPlant(name, sciename, family, kingdom, plantstyle)} >
-                    Add
+        <button className = { styles.button_add }onClick = {() => addPets(name, type,mystyle,zone)} >
+                    บันทึกข้อมูล
          </button>
                 </div>
-         <div className = { styles.list } > { showPlants() } </div> 
+         <div className = { styles.list } > { showPets() } </div> 
          </div >
     );
 };
