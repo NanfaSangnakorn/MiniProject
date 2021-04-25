@@ -10,12 +10,7 @@ const NavBar = () => {
   return (
     <nav class="navbar  fixed-top navbar-expand-lg navbar-light bg-success md-4">
       <div className="container">
-        <img
-          src="./publid/image/"
-          width="10%"
-          height="10%"
-          class="d-inline-block align-left"
-        />
+        <img src="../images/icon.png" width="65px" height="65px" href="/" />
         <a className="navbar-brand" href="/">
           เพื่อนสี่ขา
         </a>
