@@ -9,7 +9,8 @@ const NavBar = () => {
   return (
     <nav class="navbar  fixed-top navbar-expand-lg navbar-light bg-primary md-4">
       <div className="container">
-        <img src="../images/icon.png" width="65px" height="65px" href="/"   />
+        <img src="../images/icon.png" width="65px" height="65px" href="/" />
+        <br/>
         <a className="navbar-brand" href="/">
                เพื่อนสี่ขา
         </a>
