@@ -33,7 +33,7 @@ export default function Login({ token }) {
 
   const loginForm = () => (
     <div className={styles.gridContainer}>
-      <div>Username:</div>
+      <div className={styles.text}>Username :</div>
       <div>
         <input
           type="text"
@@ -42,7 +42,7 @@ export default function Login({ token }) {
           onChange={(e) => setUsername(e.target.value)}
         />
       </div>
-      <div>Password:</div>
+      <div className={styles.text}>Password :</div>
       <div>
         <input
           type="password"
@@ -58,7 +58,7 @@ export default function Login({ token }) {
           type="checkbox"
           onClick={reMem}
         />
-        <label>Remember me</label>
+        <label className={styles.text1}>Remember me</label>
       </div>
     </div>
   );
@@ -74,11 +74,25 @@ export default function Login({ token }) {
       </Head>
       <div className={styles.container}>
         <Navbar />
-        <h1>Login</h1>
-        
+
         <br />
-        <div>Status: {status}</div>
         <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <img
+          src="https://www.flaticon.com/svg/vstatic/svg/2250/2250144.svg?token=exp=1619435333~hmac=d922a0e53d9575025c77b5d09618e09e"
+          width="120px"
+          height="120px"
+        />
+        <br />
+        <h2>Login</h2>
+
+        <br />
+        <h5>Status: {status}</h5>
         {loginForm()}
         <div>
           <button onClick={login}>Login</button>

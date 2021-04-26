@@ -21,17 +21,19 @@ export default function Logout({ token }) {
     }
  
     return (
-        <Layout>
-            <Head>
-                <title>User profile</title>
-            </Head>
-            <div className={styles.container}>
-                <Navbar />
-                <h1>Logout</h1>
-                <div>
-                    <h2> {status}  </h2>
-                </div>
-            </div>
-        </Layout>
-    )
+      <Layout>
+        <Head>
+          <title>User profile</title>
+        </Head>
+        <div className={styles.container}>
+          <Navbar />
+          <br />
+        
+          <h1>Logout</h1>
+          <div>
+            <h2> {status} </h2>
+          </div>
+        </div>
+      </Layout>
+    );
 }

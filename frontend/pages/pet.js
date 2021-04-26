@@ -1,8 +1,6 @@
 import useSWR, { mutate } from "swr";
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import styles from "../styles/Index.module.css";
-import Link from "next/link";
 import Navbar from "../components/navbar";
 const URL = "http://localhost/api/pets";
 const URL_BUY = "http://localhost/api/purchase";
@@ -19,20 +17,20 @@ const index = () => {
         return (
           <div className={styles.listItem} key={index}>
             <div>
-              {" "}
-              <b> ชื่อ: </b> {item.name}{" "}
+              
+              <b> ชื่อ : </b> {item.name}
             </div>
             <div>
-              {" "}
-              <b> ประเภท: </b> {item.type}{" "}
+              
+              <b> ประเภท : </b> {item.type}
             </div>
             <div>
-              {" "}
-              <b> ลักษณะ: </b> {item.mystyle}{" "}
+              
+              <b> ลักษณะ : </b> {item.mystyle}
             </div>
             <div>
-              {" "}
-              <b> บริเวณที่พบ: </b> {item.zone}{" "}
+             
+              <b> บริเวณที่พบ : </b> {item.zone}
             </div>
           </div>
         );
@@ -41,7 +39,6 @@ const index = () => {
   };
   return (
     <div className={styles.container}>
-      {" "}
       <Navbar />
       <div className={styles.title}> Pets </div>
       <div className={styles.list}> {showPets()} </div>

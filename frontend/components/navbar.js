@@ -1,6 +1,5 @@
 import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Navbar, Nav, Form } from "react-bootstrap";
 import { MDBBtn } from "mdbreact";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "bootstrap-css-only/css/bootstrap.min.css";
@@ -8,11 +7,11 @@ import "mdbreact/dist/css/mdb.css";
 
 const NavBar = () => {
   return (
-    <nav class="navbar  fixed-top navbar-expand-lg navbar-light bg-success md-4">
+    <nav class="navbar  fixed-top navbar-expand-lg navbar-light bg-primary md-4">
       <div className="container">
-        <img src="../images/icon.png" width="65px" height="65px" href="/" />
+        <img src="../images/icon.png" width="65px" height="65px" href="/"   />
         <a className="navbar-brand" href="/">
-          เพื่อนสี่ขา
+               เพื่อนสี่ขา
         </a>
         <button
           class="navbar-toggler"

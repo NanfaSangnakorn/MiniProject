@@ -83,19 +83,19 @@ const admin = ({ token }) => {
                 className={styles.button_get}
                 onClick={() => getPetsById(item.id)}
               >
-                Get{" "}
+                Get
               </button>
               <button
                 className={styles.button_update}
                 onClick={() => updatePets(item.id)}
               >
-                Update{" "}
+                Update
               </button>
               <button
                 className={styles.button_delete}
                 onClick={() => deletePets(item.id)}
               >
-                Delete{" "}
+                Delete
               </button>
             </div>
           </div>
@@ -106,30 +106,33 @@ const admin = ({ token }) => {
   return (
     <div className={styles.container}>
       <Navbar />
-      <h1> Pets </h1>
+      <br />
+      <br/>
       <div className={styles.form_add}>
+        <br />
         <h2> Add Pets </h2>
-        ชื่อ:
+        <br />
+        <h4>ชื่อ :</h4>
         <input
           type="text"
           name="name"
           onChange={(e) => setName(e.target.value)}
         ></input>
-        ประเภท:
+       <h4> ประเภท :</h4>
         <input
           type="text"
           name="type"
           onChange={(e) => settype(e.target.value)}
         ></input>
-        ลักษณะ:
+        <h4>ลักษณะ : </h4>
         <input
           type="text"
           name="mystyle"
           onChange={(e) => setmystyle(e.target.value)}
         ></input>
-        บริเวณที่พบ:
+       <h4> บริเวณที่พบ : </h4>
         <input
-          type="number"
+          type="text"
           name="zone"
           onChange={(e) => setzone(e.target.value)}
         ></input>
@@ -139,9 +142,6 @@ const admin = ({ token }) => {
         >
           บันทึกข้อมูล
         </button>
-      </div>
-      <div className={styles.image1}>
-        <img src="https://i.pinimg.com/originals/29/d8/f7/29d8f716ef17135fd3589f16cb8e958b.gif" />
       </div>
       <div className={styles.list}> {showPets()} </div>
     </div>

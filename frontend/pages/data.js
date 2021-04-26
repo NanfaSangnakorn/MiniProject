@@ -66,9 +66,6 @@ function data() {
       <Navbar />
       <br />
       <br />
-      <br />
-      <br />
-      <br />
       <div className={styles.data2}>{tattooElements}</div>
       {tattooPost}
     </div>
